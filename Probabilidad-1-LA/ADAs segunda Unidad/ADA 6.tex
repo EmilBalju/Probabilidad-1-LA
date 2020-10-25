@@ -1,0 +1,321 @@
+\documentclass[12pt,spanish]{homework}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{enumerate} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[spanish,mexico]{babel}
+\inputencoding{latin1}
+
+\title{Actividad de Aprendizaje 6}
+\author{Emilio Balan,Amilcar Campos, Elian Carrasco, Citlali Gutiérrez, Héctor Rodríguez}
+\date{26 de octubre del 2020}
+\institute{Universidad Autónoma de Yucatán \\ Facultad de Matemáticas - UADY}
+\class{Probabilidad 1 (Grupo B)}
+\professor{Lic. Ernesto Guerrero Lara}
+
+\begin{document}
+
+\maketitle
+
+\section*{Ejercicio 1}
+\begin{center}
+Se lanzan dos dados y sea X el valor absoluto de la diferencia entre los números que aparecen.
+Calcula: \\
+\end{center}
+\begin{problem}
+a) La función masa de probabilidad de X. 
+\end{problem}
+\subsection*{Solución}
+Observemos primero que X es discreta pues $R_{x} = \lbrace 0,1,2,3,4,5 \rbrace$. Vemos que nuestra $\# \Omega = 6 \cdot 6 = 36$, luego las probabilidades son: \\
+1.$f_{X}(0)= P(X=0) = P(\lbrace 1,1 \rbrace,\lbrace 2,2 \rbrace,\lbrace 3,3 \rbrace,\lbrace 4,4 \rbrace,\lbrace 5,5 \rbrace,\lbrace 6,6 \rbrace) = \dfrac{6}{36}$\\
+$$2.f_{X}(1)= P(X=1) = P(\lbrace 1,2 \rbrace,\lbrace 2,1 \rbrace,\lbrace 3,2 \rbrace,\lbrace 2,3 \rbrace,\lbrace 3,4 \rbrace,\lbrace 4,3 \rbrace, \lbrace 4,5 \rbrace,\lbrace 5,4 \rbrace, \lbrace 5,6 \rbrace, \lbrace 6,5 \rbrace) =  \dfrac{10}{36}$$
+3.$f_{X}(2)= P(X=2) =  P(\lbrace 1,3 \rbrace,\lbrace 3,1 \rbrace,\lbrace 4,2 \rbrace,\lbrace 2,4 \rbrace,\lbrace 3,5 \rbrace,\lbrace 5,3 \rbrace, \lbrace 4,6 \rbrace,\lbrace 6,4 \rbrace) =\dfrac{8}{36}$\\
+4.$f_{X}(3)= P(X=3) = P(\lbrace 1,4 \rbrace,\lbrace 4,1 \rbrace,\lbrace 2,5 \rbrace,\lbrace 5,2 \rbrace,\lbrace 3,6 \rbrace,\lbrace 6,3 \rbrace)=\dfrac{6}{36}$\\
+5.$f_{X}(4)= P(X=4) =P(\lbrace 1,5 \rbrace,\lbrace 5,1 \rbrace,\lbrace 2,6 \rbrace,\lbrace 6,2 \rbrace) = \dfrac{4}{36}$\\
+6.$f_{X}(5)= P(X=5) = P(\lbrace 1,6 \rbrace,\lbrace 6,1 \rbrace) = \dfrac{2}{36}$\\
+
+En conclusión
+$$
+f_{x} (x)=\begin{cases}
+\dfrac{6}{36} & \mbox{ $x = 0 $.} \\
+\\
+\dfrac{10}{36} & \mbox{ $x = 1 $.} \\
+\\
+\dfrac{8}{36} & \mbox{ $x = 2$.} \\
+\\
+\dfrac{6}{36} & \mbox{ $x = 3$.} \\
+\\
+\dfrac{4}{36} & \mbox{ $ x = 4$.} \\
+\\
+\dfrac{2}{36} & \mbox{ $ x = 5 $.}
+\end{cases}
+$$
+\begin{problem}
+b) La función de distribución X
+\end{problem}
+\subsection*{Solución}
+(Cómo obtuvimos la función masa de probabilidad en el anterior problema, podemos sacar nuestra función distributiva a partir de ahí.)\\
+Observemos que $R_{X}= \lbrace 0,1,2,3,4,5 \rbrace$ entonces X es una variable discreta así que para calcular la función de distribucción utilizaremos la identidad de \[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]: \\
+\begin{enumerate}
+\item Para $x < 0$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=0$$
+Pues no hay alguna x en $R_{X}$ que sea menor que 0.
+\item Para $0 \leq x < 1$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(0)$$
+$$= \dfrac{6}{36}$$
+\item Para $1 \leq x < 2$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(0) + f_{X}(1)$$
+$$= \dfrac{16}{36}$$
+\item Para $2 \leq x < 3$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(0) + f_{X}(1) + f_{X}(2) $$
+$$= \dfrac{24}{36}$$
+\item Para $3 \leq x < 4$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(0) + f_{X}(1) + f_{X}(2) + f_{X}(3)  $$
+$$= \dfrac{30}{36}$$
+\item Para $4 \leq x < 5$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(0) + f_{X}(1) + f_{X}(2) + f_{X}(3) + f_{X}(4)$$
+$$= \dfrac{34}{36}$$
+\item Para $x \geq 5$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(0) + f_{X}(1) + f_{X}(2) + f_{X}(3) + f_{X}(4) + f_{X}(5)$$
+$$= 1$$
+\end{enumerate}
+Por lo tanto la función de distribución es:
+$$
+F_{X} (x)=\begin{cases}
+0 & \mbox{ $x<0$,}\\
+\dfrac{6}{36} & \mbox{ $0 \leq x < 1 $.} \\
+\\
+\dfrac{16}{36} & \mbox{ $1 \leq x < 2 $.} \\
+\\
+\dfrac{24}{36} & \mbox{ $2 \leq x < 3 $.} \\
+\\
+\dfrac{30}{36} & \mbox{ $3 \leq x < 4 $.} \\
+\\
+\dfrac{34}{36} & \mbox{ $4 \leq x < 5 $.} \\
+1 & \mbox{ $ x \geq 5 $.}
+\end{cases}
+$$
+
+
+\section*{Ejercicio 2}
+\begin{center}
+Una urna contiene 7 bolas rojas y tres azules, se seleccionan cinco bolas en forma aleatoria y
+sea X el número de bolas rojas que se obtienen. Calcula:
+\end{center}
+
+\begin{problem}
+a) La función masa de probabilidad de X
+\end{problem}
+\subsection*{Solución}
+Observemos primero que X es discreta pues $R_{X} = \lbrace 2,3,4,5 \rbrace$.\\ Nuestra $\# \Omega = \binom{10}{5} = 252$, luego las probabilidades son:
+\begin{enumerate}
+\item $f_{X}(2)= P(X=2)= \dfrac{\binom{7}{2} \cdot \binom{3}{3}}{252} = \dfrac{21}{252}$
+\item $f_{X}(3)= P(X=3)= \dfrac{\binom{7}{3} \cdot \binom{3}{2}}{252} = \dfrac{105}{252}$
+\item $f_{X}(4)= P(X=4)= \dfrac{\binom{7}{4} \cdot \binom{3}{1}}{252} = \dfrac{105}{252}$
+\item $f_{X}(5)= P(X=5)= \dfrac{\binom{7}{5} \cdot \binom{3}{0}}{252} = \dfrac{21}{252}$
+\end{enumerate}
+En conclusión
+$$
+f_{X} (x)=\begin{cases}
+\dfrac{21}{252} & \mbox{ $x = 2$.} \\
+\\
+\dfrac{105}{252} & \mbox{ $x = 3$.} \\
+\\
+\dfrac{105}{252} & \mbox{ $ x = 4$.} \\
+\\
+\dfrac{21}{252} & \mbox{ $ x = 5 $.}
+\end{cases}
+$$
+\begin{problem}
+b)La función de distribución X.
+\end{problem}
+\subsection*{Solución}
+(Cómo obtuvimos la función masa de probabilidad en el anterior problema, podemos sacar nuestra función distributiva a partir de ahí.)\\
+Observemos que $R_{X}= \lbrace 2,3,4,5 \rbrace$ entonces X es una variable discreta así que para calcular la función de distribucción utilizaremos la identidad de \[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]: \\
+\begin{enumerate}
+\item Para $x < 2$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=0$$
+Pues no hay alguna x en $R_{x}$ que sea menor que 2.
+\item Para $2 \leq x < 3$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(2) $$
+$$= \dfrac{21}{252}$$
+\item Para $3 \leq x < 4$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(2) + f_{X}(3)  $$
+$$= \dfrac{126}{252}$$
+\item Para $4 \leq x < 5$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(2) + f_{X}(3) + f_{X}(4)$$
+$$= \dfrac{231}{36}$$
+\item Para $x \geq 5$ se tiene:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$=f_{X}(2) + f_{X}(3) + f_{X}(4) + f_{X}(5)$$
+$$= 1$$
+\end{enumerate}
+Por lo tanto la función de distribución es:
+$$
+F_{X} (x)=\begin{cases}
+0 & \mbox{ $x<2$,}\\
+\dfrac{21}{252} & \mbox{ $2 \leq x < 3 $.} \\
+\\
+\dfrac{126}{252} & \mbox{ $3 \leq x < 4 $.} \\
+\\
+\dfrac{231}{252} & \mbox{ $4 \leq x < 5 $.} \\
+1 & \mbox{ $ x \geq 5 $.}
+\end{cases}
+$$
+\newpage
+\section*{Ejercicio 3}
+\begin{center}
+Una variable aleatorias discreta X tiene la siguiente función masa de probabilidad
+$$
+f_{X} (x)=\begin{cases}
+\dfrac{c}{x^{2}} & \mbox{ $x = 1,2,...$,}\\
+0 & \mbox{otro}\mbox{ caso}
+\end{cases}
+$$
+Calcula:
+\end{center}
+
+\begin{problem}
+a) $P(X < 4)$
+\end{problem}
+\subsection*{Solución}
+Por conocimiento previo sabemos que $P(X < x)= \lim_{h \to{0^{-}}}{F_{x}(x+h)}$, y también sabemos que $P(X = x)=F_{x}(x)-\lim_{h \to{0^{-}}}{F_{x}(x+h)}$, y de igual forma sabemos que $f_{X}(x)= P( X = x)$. \\
+Así que 
+$$P(X < 4)= \lim_{h \to{0^{-}}}{F_{x}(4+h)} $$ 
+Y 
+$$\lim_{h \to{0^{-}}}{F_{x}(4+h)} = F_{x}(4) - P(X = x) =  F_{x}(4) - f_{x}(4) $$
+Por lo que podemos ver que:
+$$P(X < 4)= F_{x}(4) - f_{x}(4)$$
+Y sabemos que \[ F_{X}(4)= \sum_{y\leq x}f_{X}(y)\]
+$$= f_{X}(1) + f_{X}(2) + f_{X}(3) + f_{X}(4)$$
+$$= c + \dfrac{c}{4} + \dfrac{c}{9} + \dfrac{c}{16}$$
+$$\dfrac{205c}{144}$$
+Y $f_{x}(4)= \dfrac{c}{16}$, así que: 
+$$P(X < 4) = F_{x}(4) - f_{x}(4) = \dfrac{205c}{144}- \dfrac{c}{16} = \dfrac{49c}{36}$$ donde $c \leq \dfrac{36}{49}$.
+\newpage
+\begin{problem}
+b) $P(X > 2)$
+\end{problem}
+\subsection*{Solución}
+Sabemos que $P(X > x)= 1 - F_{X}(x)$, de igual forma conocemos la función masa de probabilidad entonces la función de dsitribucción se calcula a través de la identidad:
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+Así que $P(X > 2)$ puede ser visto cómo:
+\[P(X > 2)= 1 -\sum_{y\leq x}f_{X}(y)\]
+Así que para $2 \leq x < 3$ se tiene
+\[ F_{X}(x)= \sum_{y\leq x}f_{X}(y)\]
+$$= f_{X}(1) + f_{X}(2)$$
+$$= c + \dfrac{c}{4}$$
+$$= \dfrac{5c}{4}$$
+Por lo que concluimos que nuestra $P(X > 2)$ es:
+$$1 - \dfrac{5c}{4} = \dfrac{4-5c}{4}$$
+\section*{Ejercicio 4}
+\begin{center}
+Sea X una variable aleatoria tal que $P(a < X < b) = 0$. Demuestra que $F_{X}(x)$ es constante
+en el intervalo (a, b).
+\end{center}
+\subsection*{Solución}
+Podemos ver a $P(a < X < b)$ como 
+$$= P(X < b) - P(X \leq a)= \lim_{h \to{0^{-}}}{F_{x}(b+h)} - F_{X}(a) = 0$$
+De aquí podemos llegar a que:
+$$\lim_{h \to{0^{-}}}{F_{x}(b+h)}= F_{X}(a)$$
+Como $F_{X}(a)$ tomara un valor real, y este valor permanente constante, por conocimiento de limites sabemos que el el límite de una constante es una constante, así que:
+$$F_{x}(b+h) = F_{X}(a)$$
+Así que $F_{X}(x)$ es constante en el intervalo de (a,b).
+\section*{Ejercicio 5}
+\begin{center}
+Sea X una variable aleatoria con la siguiente función de distribución.\\
+Calcula:
+\end{center}
+\begin{problem}
+a) La función masa de probabilidad
+\end{problem}
+\subsection*{Solución}
+Como la gráfica de la función de distribución es escalonada estamos frente a una variable aleatoria discreta por lo que utilizaremos la identidad $f_{x}(x)= F_{X}(x)-\lim_{h \to{0^{+}}}{F_{X}(x-h)}$ para calcular la función masa de probabilidad. De esta identidad se deduce que $R_{X}= \lbrace -2,0,2,4,8,10 \rbrace $
+\begin{enumerate}
+\item Para $x = -2$
+$$f_{x}(-2)=F_{X}(-2)-\lim_{h \to{0^{+}}}{F_{X}(-2-h)} $$
+$$=0.15 - 0$$
+$$=0.15$$
+\item Para $x = 0$
+$$f_{x}(0)=F_{X}(0)-\lim_{h \to{0^{+}}}{F_{X}(0-h)} $$
+$$=0.28 - 0.15$$
+$$=0.13$$
+\item Para $x = 2$
+$$f_{x}(2)=F_{X}(2)-\lim_{h \to{0^{+}}}{F_{X}(2-h)} $$
+$$=0.40 - 0.28$$
+$$=0.12$$
+\item Para $x = 4$
+$$f_{x}(4)=F_{X}(4)-\lim_{h \to{0^{+}}}{F_{X}(4-h)} $$
+$$=0.50 - 0.40$$
+$$=0.10$$
+\item Para $x = 8$
+$$f_{x}(8)=F_{X}(8)-\lim_{h \to{0^{+}}}{F_{X}(8-h)} $$
+$$=0.70 - 0.50$$
+$$=0.20$$
+\item Para $x = 10$
+$$f_{x}(10)=F_{X}(10)-\lim_{h \to{0^{+}}}{F_{X}(10-h)} $$
+$$=1 - 0.70$$
+$$=0.30$$
+\end{enumerate}
+Por lo tanto la función masa de probabilidad para la variable aleatoria X es
+$$
+f_{x} (x)=\begin{cases}
+0.15 & \mbox{ $x = -2 $.} \\
+0.13 & \mbox{ $x = 0 $.} \\
+0.12 & \mbox{ $x = 2 $.} \\
+0.10 & \mbox{ $x = 4 $.} \\
+0.20 & \mbox{ $x = 8 $.} \\
+0.30 & \mbox{ $x = 10 $.}
+\end{cases}
+$$
+\begin{problem}
+b) $P(-1.2 < X \leq 6)$
+\end{problem}
+\subsection*{Solución}
+Sabemos que $P(x_{1} < X \leq x_{2})= F_{X}(x_{2}) - F_{X}(x_{1})$, para cualquier $x_{1} < x_{2}$,  de igual forma conocemos la función de distribucción X.\\
+Así que $P(-1.2 < X \leq 6)= F_{X}(6) - F_{X}(-1.2) $, y por lo que podemos ver en la función que $F_{X}(-1.2)= 0.15$ y que $F_{X}(6)= 0.50$.\\ 
+Por lo que concluimos que nuestra $P(-1.2 < X \leq 6)$ es:\\
+$$0.50 - 0.15 = 0.35$$
+\begin{problem}
+c) $P(X > 4)$
+\end{problem}
+\subsection*{Solución}
+Sabemos que $P(X > x)= 1 - F_{X}(x)$, de igual forma conocemos la función de distribucción X.\\
+Así que $P(X > 4)= 1 - F_{X}(4)$, y por lo que podemos ver en la función $F_{X}(4)= 0.50$.\\ 
+Por lo que concluimos que nuestra $P(X > 2)$ es:\\
+$$1 - 0.50 = 0.50$$
+\section*{Ejercicio 6}
+\begin{center}
+Calcula $P(X >2)$ si X una variable aleatoria con función masa de probabilidad \\
+$f_{x}(x)= c\dfrac{2^{x}}{x!}$ para $x= 0,1,2,...$
+\end{center}
+\subsection*{Solución}
+Sabemos que $P(X > x)= 1 - F_{X}(x)$, de igual forma conocemos la función masa de probabilidad entonces la función de distribucción se calcula a través de la identidad:
+\[ F_{X}(x)= \sum_{y\leq x}f_{x}(y)\]
+Así que $P(X > 2)$ puede ser visto cómo:
+\[P(X > 2)= 1 -\sum_{y\leq x}f_{x}(y)\]
+Así que para $2 \leq x < 3$ se tiene
+\[ F_{X}(x)= \sum_{y\leq x}f_{x}(y)\]
+$$= f_{x}(0) + f_{x}(1) + f_{x}(2)$$
+$$= c + 2c + 2c$$
+$$= 5c$$
+Por lo que concluimos que nuestra $P(X > 2)$ es:
+$$1 - 5c$$
+
+\end{document}
