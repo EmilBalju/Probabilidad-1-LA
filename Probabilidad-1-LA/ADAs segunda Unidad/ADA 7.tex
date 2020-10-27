@@ -1,0 +1,312 @@
+\documentclass[12pt,spanish]{homework}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{enumerate} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[spanish,mexico]{babel}
+\inputencoding{latin1}
+
+\title{Actividad de Aprendizaje 7}
+\author{Emilio Balan,Amilcar Campos, Elian Carrasco, Citlali Gutiérrez, Héctor Rodríguez}
+\date{28 de octubre del 2020}
+\institute{Universidad Autónoma de Yucatán \\ Facultad de Matemáticas - UADY}
+\class{Probabilidad 1 (Grupo B)}
+\professor{Lic. Ernesto Guerrero Lara}
+
+\begin{document}
+
+\maketitle
+
+\section*{Ejercicio 1}
+\begin{center}
+Verifica que la siguiente función puede ser utilizada como función de densidad:
+$$
+f_{X} (x)=\begin{cases}
+\dfrac{1}{(1+x)^{2}} & \mbox{ $x > 0 $}\\
+0 & \mbox{otro}\mbox{ caso}
+\end{cases}
+$$
+\end{center}
+\subsection*{Solución}
+Una función f: $\mathbb{R} \rightarrow \mathbb{R}$ es una función de densidad de probabilidad si:
+\begin{enumerate}
+\item $f(x) \geq 0$\\
+Y esto es verdadero ya que vemos que la función toma un valor real, cuando $x > 0$, y no existe ninguna restricción, ya que la única forma en que hubiese restricción sería si $x= -1$, y ese caso no se encuentra definido.
+\item $ \int \limits_{- \infty}^{\infty} f(x)dx= 1$ 
+\[\int \limits_{- \infty}^{\infty} f(x)dx = \int \limits_{- \infty}^{0} f(x)dx + \int \limits_{0}^{\infty} f(x)dx = \int \limits_{- \infty}^{0} 0dx + \int \limits_{0}^{\infty} \dfrac{1}{(x+1)^{2}} dx = 0 - \dfrac{1}{x + 1}\Big|_0^\infty = 0 - 0 + 1 = 1 \]
+$\therefore$ La función puede ser utilizada como función de densidad.
+\end{enumerate}
+
+
+\section*{Ejercicio 2}
+\begin{center}
+Considera la siguiente función de densidad de probabilidad
+$$
+f_{X} (x)=\begin{cases}
+\dfrac{1}{5} & \mbox{ $1 \leq x \leq 4 $}\\
+0 & \mbox{otro}\mbox{ caso}
+\end{cases}
+$$
+Calcula:
+\end{center}
+
+\begin{problem}
+a) $P(-1 \leq X < 0)$
+\end{problem}
+\subsection*{Solución}
+Usaremos la identidad:\\
+$P(X\in A) = \int \limits_{A} f(x)dx$ para cualquier $A\subset \mathbb{R}$\\
+La probabilidad pedida es
+$$P(-1 \leq X < 0) = \int \limits_{-1}^{0} f_{X}(x)dx$$
+$$= \int \limits_{-1}^{0} \dfrac{1}{5} dx$$
+$$=\dfrac{x}{5}\Big|_{-1}^0$$
+$$= \dfrac{1}{5}$$
+
+\begin{problem}
+b)$P(X < 2)$
+\end{problem}
+\subsection*{Solución}
+Usaremos la identidad:\\
+$P(X\in A) = \int \limits_{A} f(x)dx$ para cualquier $A\subset \mathbb{R}$\\
+La probabilidad pedida es
+$$P(X < 2) = \int \limits_{-\infty}^{2} f_{X}(x)dx$$
+$$= \int \limits_{-\infty}^{-1} f_{X}(x)dx + \int \limits_{-1}^{2} f_{X}(x)dx  $$
+$$= \int \limits_{-\infty}^{-1} \dfrac{1}{5} dx + \int \limits_{-1}^{2} \dfrac{1}{5} dx  $$
+$$=0 + \dfrac{x}{5}\Big|_{-1}^2$$
+$$= \dfrac{3}{5}$$
+
+\begin{problem}
+c)$P(X  \geq 1)$
+\end{problem}
+\subsection*{Solución}
+Usaremos la identidad:\\
+$P(X\in A) = \int \limits_{A} f(x)dx$ para cualquier $A\subset \mathbb{R}$\\
+La probabilidad pedida es
+$$P(X \geq 1) = \int \limits_{1}^{\infty} f_{X}(x)dx$$
+$$= \int \limits_{1}^{4} f_{X}(x)dx + \int \limits_{4}^{\infty} f_{X}(x)dx  $$
+$$= \int \limits_{1}^{4} \dfrac{1}{5} dx + \int \limits_{4}^{\infty} \dfrac{1}{5} dx  $$
+$$=\dfrac{x}{5}\Big|_{1}^4 + 0$$
+$$= \dfrac{3}{5}$$ 
+
+\begin{problem}
+4)La función de distribucción
+\end{problem}
+\subsection*{Solución}
+Sabemos que
+$$F_{X}(x) = \int \limits_{-\infty}^{x} f_{X}(t)dt$$
+Por lo que tenemos los siguientes casos:
+\begin{enumerate}
+\item Para $x < -1$
+$$F_{X}(x) = \int \limits_{-\infty}^{x} f_{X}(t)dt$$
+$$= \int \limits_{-\infty}^{x} 0dt$$
+$$=0$$
+\item Para $-1 \leq x \leq 4$
+$$F_{X}(x) = \int \limits_{-\infty}^{x} f_{X}(t)dt$$
+$$= \int \limits_{-\infty}^{-1} f_{X}(t)dt + \int \limits_{-1}^{x} f_{X}(t)dt $$
+$$= \int \limits_{-\infty}^{-1} 0dt + \int \limits_{-1}^{x} \dfrac{1}{5} dt $$
+$$= 0 + \dfrac{x}{5}\Big|_{-1}^x$$
+$$=\dfrac{x + 1}{5}$$
+\item Para $x > 4$
+$$F_{X}(x) = \int \limits_{-\infty}^{x} f_{X}(t)dt$$
+$$= \int \limits_{-\infty}^{-1} f_{X}(t)dt + \int \limits_{-1}^{4} f_{X}(t)dt + \int \limits_{4}^{x} f_{X}(t)dt $$
+$$= \int \limits_{-\infty}^{-1} 0dt + \int \limits_{-1}^{4} \dfrac{1}{5} dt + \int \limits_{4}^{x} 0dt $$
+$$= 0 + \dfrac{x}{5}\Big|_{-1}^4 + 0$$
+$$=1$$
+\end{enumerate}
+Se concluye que la función de distribucción acumulada es:
+$$
+F_{X} (x)=\begin{cases}
+0 & \mbox{ $x < 1 $}\\
+\dfrac{x + 1}{5} & \mbox{$1 \leq x \leq 4 $}\\
+1 & \mbox {$x > 4 $}
+\end{cases}
+$$
+
+
+
+
+\section*{Ejercicio 3}
+\begin{center}
+Considera la siguiente función de densidad de probabilidad
+$$
+f_{X} (x)=\begin{cases}
+cx^{2} & \mbox{ $1 \leq x \leq 2 $}\\
+0 & \mbox{otro}\mbox{ caso}
+\end{cases}
+$$
+Calcula:
+\end{center}
+
+\begin{problem}
+a) El valor de c para que sea una función de densidad.
+\end{problem}
+\subsection*{Solución}
+Por la propiedad 2 de la definición de función de densidad sabemos que:
+$$1=\int \limits_{- \infty}^{\infty} f_{X}(x)dx$$
+$$= \int \limits_{- \infty}^{1} f_{X}(x)dx + \int \limits_{1}^{2} f_{X}(x)dx + \int \limits_{2}^{\infty} f_{X}(x)dx$$
+$$= \int \limits_{- \infty}^{1} 0dx + \int \limits_{1}^{2} cx^{2}dx + \int \limits_{2}^{\infty} 0dx$$
+$$= 0 + \dfrac{cx^{3}}{3}\Big|_{1}^2 + 0$$
+$$=\dfrac{7c}{3}$$
+de donde se concluye que $c=\dfrac{3}{7}$. Por lo tanto la función de densidad es:
+$$
+f_{X} (x)=\begin{cases}
+\dfrac{3x^{2}}{7} & \mbox{ $1 \leq x \leq 2 $}\\
+0 & \mbox{otro}\mbox{ caso}
+\end{cases}
+$$
+
+
+
+\begin{problem}
+b) $P(X > \dfrac{3}{2})$
+\end{problem}
+\subsection*{Solución}
+Usaremos la identidad:\\
+$P(X\in A) = \int \limits_{A} f(x)dx$ para cualquier $A\subset \mathbb{R}$\\
+La probabilidad pedida es
+$$P(X > \dfrac{3}{2}) = \int \limits_{\dfrac{3}{2}}^{\infty} f_{X}(x)dx$$
+$$= \int \limits_{\dfrac{3}{2}}^{2} f_{X}(x)dx + \int \limits_{2}^{\infty} f_{X}(x)dx  $$
+$$= \int \limits_{\dfrac{3}{2}}^{2} \dfrac{3x{2}}{7} dx + \int \limits_{2}^{\infty} 0dx  $$
+$$=[\dfrac{x^{3}}{7}\Big|_{\dfrac{3}{2}}^2 + 0$$
+$$= \dfrac{37}{56}$$ 
+\begin{problem} 
+c) $P(X < \dfrac{7}{5})$
+\end{problem}
+\subsection*{Solución}
+Usaremos la identidad:\\
+$P(X\in A) = \int \limits_{A} f(x)dx$ para cualquier $A\subset \mathbb{R}$\\
+La probabilidad pedida es
+$$P(X < \dfrac{7}{5}) = \int \limits_{-\infty}^{\dfrac{7}{5}} f_{X}(x)dx$$
+$$= \int \limits_{-\infty}^{1} f_{X}(x)dx + \int \limits_{1}^{\dfrac{7}{5}} f_{X}(x)dx  $$
+$$= \int \limits_{-\infty}^{1} 0dx + \int \limits_{1}^{\dfrac{7}{5}} \dfrac{3x^{2}}{7} dx  $$
+$$=0 + \dfrac{x^{3}}{7}\Big|_{1}^{\dfrac{7}{5}}$$
+$$= \dfrac{218}{875}$$
+\begin{problem}
+4)La función de distribucción
+\end{problem}
+\subsection*{Solución}
+Sabemos que
+$$F_{X}(x) = \int \limits_{-\infty}^{x} f_{X}(t)dt$$
+Por lo que tenemos los siguientes casos:
+\begin{enumerate}
+\item Para $x < 1$
+$$F_{X}(x) = \int \limits_{-\infty}^{x} f_{X}(t)dt$$
+$$= \int \limits_{-\infty}^{x} 0dt$$
+$$=0$$
+\item Para $1 \leq x \leq 2$
+$$F_{X}(x) = \int \limits_{-\infty}^{x} f_{X}(t)dt$$
+$$= \int \limits_{-\infty}^{1} f_{X}(t)dt + \int \limits_{1}^{x} f_{X}(t)dt $$
+$$= \int \limits_{-\infty}^{1} 0dt + \int \limits_{1}^{x} \dfrac{3t^{2}}{7} dt $$
+$$= 0 + \dfrac{t^{3}}{7}\Big|_{1}^x$$
+$$=\dfrac{x^{3} - 1}{7}$$
+\item Para $x > 2$
+$$F_{X}(x) = \int \limits_{-\infty}^{x} f_{X}(t)dt$$
+$$= \int \limits_{-\infty}^{1} f_{X}(t)dt + \int \limits_{1}^{2} f_{X}(t)dt + \int \limits_{2}^{x} f_{X}(t)dt $$
+$$= \int \limits_{-\infty}^{1} 0dt + \int \limits_{1}^{2} \dfrac{3t^{2}}{7} dt + \int \limits_{2}^{x} 0dt $$
+$$= 0 + \dfrac{t^{3}}{7}\Big|_{1}^2 + 0$$
+$$=1$$
+\end{enumerate}
+Se concluye que la función de distribucción acumulada es:
+$$
+F_{X} (x)=\begin{cases}
+0 & \mbox{ $x < 1 $}\\
+\dfrac{x^{3} - 1}{5} & \mbox{$1 \leq x \leq 2 $}\\
+1 & \mbox {$x > 2 $}
+\end{cases}
+$$
+\section*{Ejercicio 4}
+\begin{center}
+Considera la siguiente función de distribución
+$$
+F_{X} (x)=\begin{cases}
+1-ce^{-2} & \mbox{ $x > 0 $}\\
+0 & \mbox{otro}\mbox{ caso}
+\end{cases}
+$$
+Calcula:
+\end{center}
+\begin{problem}
+a)El valor de c.
+\end{problem}
+\subsection*{Solución}
+
+
+\begin{problem}
+b) $P(\dfrac{1}{2} < X < \dfrac{3}{2})$
+\end{problem}
+\subsection*{Solución}
+
+\begin{problem}
+c) $P(X < 2)$
+\end{problem}
+\subsection*{Solución}
+
+\begin{problem}
+d) La función de densidad
+\end{problem}
+\subsection*{Solución}
+
+\section*{Ejercicio 5}
+\begin{center}
+Considera la siguiente función de distribución
+$$
+F_{X} (x)=\begin{cases}
+0 & \mbox{ $x \leq 1 $}\\
+\dfrac{x- 1}{10} & \mbox{$1 < x < 11 $}\\
+1 & \mbox {$x \geq 11 $}
+\end{cases}
+$$
+Calcula:
+\end{center}
+\begin{problem}
+a) $P(X > 5)$
+\end{problem}
+\subsection*{Solución}
+Por propiedades de la función de distribucción tenemos que:
+$$P(X > 5)= 1 - P(X \leq 5)$$
+$$= 1 - F_{X}(5)$$
+$$=1 - (\dfrac{4}{10})$$
+$$=\dfrac{6}{10}$$
+\begin{problem}
+b) $P(X \leq 8)$
+\end{problem}
+\subsection*{Solución}
+ Sabemos que:
+$$P( X \leq 8) = F_{X}(8)$$
+$$=\dfrac{8 - 1}{10}$$
+$$=\dfrac{7}{10}$$ 
+ 
+\begin{problem}
+c) La función de densidad
+\end{problem}
+\subsection*{Solución}
+Como $f_{X}(x) = F'_{X}(x)$
+\begin{enumerate}
+\item Para $x \leq 1$ tenemos que:
+$$f_{X}(x) = F'_{X}(x)$$
+$$= \dfrac{d}{dx} 0$$
+$$=0$$
+\item Para $1 < x < 11$
+$$f_{X}(x) = F'_{X}(x)$$
+$$= \dfrac{d}{dx} \dfrac{x - 1}{10}$$
+$$= \dfrac{1}{10}$$
+\item Para $x \geq 11$
+$$f_{X}(x) = F'_{X}(x)$$
+$$= \dfrac{d}{dx} 0$$
+$$=0$$
+\end{enumerate}
+Por lo tanto la función de densidad es:
+$$
+f_{X} (x)=\begin{cases}
+\dfrac{1}{10} & \mbox{ $1 < x < 11 $}\\
+0 & \mbox{otro}\mbox{ caso}
+\end{cases}
+$$
+
+%\displaystyle\int_{0}^{1}\frac{x\;dx}{x^2+1}=\left\frac{1}{2}\ln(x^2+1)\right|_0^1=\frac12\ln2$
+\end{document}
